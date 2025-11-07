@@ -169,14 +169,14 @@ packages:
   flutter_biz_main:
     dependency: "direct main"
     description:
-      path: flutter_biz_main
+      path: "../flutter_biz_main"
       relative: true
     source: path
     version: "1.0.0+1"
   flutter_biz_setting:
     dependency: "direct main"
     description:
-      path: flutter_biz_setting
+      path: "../flutter_biz_setting"
       relative: true
     source: path
     version: "1.0.0+1"
@@ -191,7 +191,7 @@ packages:
   flutter_lib_common:
     dependency: "direct main"
     description:
-      path: flutter_lib_common
+      path: "../flutter_lib_common"
       relative: true
     source: path
     version: "1.0.0+1"

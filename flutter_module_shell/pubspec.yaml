@@ -31,13 +31,13 @@ dependencies:
   cupertino_icons: ^1.0.0
 
   flutter_lib_common:
-    path: flutter_lib_common
+    path: ../flutter_lib_common
 
   flutter_biz_main:
-    path: flutter_biz_main
+    path: ../flutter_biz_main
 
   flutter_biz_setting:
-    path: flutter_biz_setting
+    path: ../flutter_biz_setting
 
 dev_dependencies:
   flutter_test:
