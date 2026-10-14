@@ -26,10 +26,35 @@ abstract class BaseState<T extends BaseStatefulWidget> extends State<T> with Aut
     return getBody(context);
   }
 
+  @override
+  void initState() {
+    super.initState();
+  }
+
   Widget getBody(BuildContext context);
 
   @override
   bool get wantKeepAlive => false;
+
+  @override
+  void activate() {
+    super.activate();
+  }
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+  }
+
+  @override
+  void deactivate() {
+    super.deactivate();
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+  }
 }
 
 /// with Scaffold, with appBar

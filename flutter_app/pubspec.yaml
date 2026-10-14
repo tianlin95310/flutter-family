@@ -35,8 +35,8 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
 
-  tl_flutter_coms:
-    path: ../tl_flutter_coms
+  flutter_module_shell:
+    path: ../flutter_module_shell
 
 dev_dependencies:
   flutter_test:
