@@ -7,6 +7,7 @@ class BaseStatelessWidget extends StatelessWidget {
     return Container();
   }
 }
+
 abstract class BaseStatefulWidget extends StatefulWidget {
   @override
   State createState() {
@@ -19,7 +20,7 @@ abstract class BaseStatefulWidget extends StatefulWidget {
 }
 
 /// 基本的StatefulWidget State, no Scaffold, no appBar, with KeepAlive
-abstract class BaseState<T extends BaseStatefulWidget> extends State<T> with AutomaticKeepAliveClientMixin{
+abstract class BaseState<T extends BaseStatefulWidget> extends State<T> with AutomaticKeepAliveClientMixin {
   @override
   Widget build(BuildContext context) {
     super.build(context);
@@ -91,7 +92,6 @@ abstract class BasePageTitleState<T extends BaseStatefulWidget> extends State<T>
 
 /// 带有AppBar的异步加载state
 abstract class BasePageTitleFutureState<T extends BaseStatefulWidget> extends State<T> {
-
   late Future _future;
 
   @override
@@ -182,7 +182,7 @@ abstract class BaseFutureState<T extends BaseStatefulWidget> extends State<T> {
     );
   }
 
-  Alignment loadingPosition(){
+  Alignment loadingPosition() {
     return Alignment.centerLeft;
   }
 

@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
 
   final Map config;
 
-  MyApp(this.visitRoutes, this.authRoutes, this.config);
+  const MyApp(this.visitRoutes, this.authRoutes, this.config);
 
   @override
   Widget build(BuildContext context) {
@@ -114,7 +114,7 @@ class MyApp extends StatelessWidget {
                 if (locale == null) {
                   return locale;
                 }
-                if (locale?.languageCode == 'zh') {
+                if (locale.languageCode == 'zh') {
                   return Locale('zh', 'CN');
                 } else {
                   return locale;

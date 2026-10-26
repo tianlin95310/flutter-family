@@ -3,6 +3,13 @@ mixin AAA {
   get value2 => 200;
 }
 
+mixin BBB on AAA {
+
+}
+
+// mixin BBBB extends AAA {
+//
+// }
 class C1 with AAA {
 
 }

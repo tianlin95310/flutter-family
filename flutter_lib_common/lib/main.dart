@@ -6,3 +6,4 @@ export 'i18n/tl-locale-delegate.dart';
 export 'start/main.dart';
 export 'themes/main.dart';
 
+export 'base/base-widget-2026.dart';

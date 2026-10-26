@@ -1,5 +1,5 @@
 void main() {
-  A()..fun();
+  A()..fun()..fun2();
 }
 
 abstract class B {
@@ -18,7 +18,7 @@ mixin Test {
   }
 }
 
-mixin Test2 implements B{
+mixin Test2 implements B {
   var user = 'Test2';
   fun() {
     print('mixin Test2 fun');
