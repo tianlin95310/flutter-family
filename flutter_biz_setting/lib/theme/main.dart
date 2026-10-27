@@ -65,6 +65,13 @@ class ThemeSettingState extends BasePageTitleState {
               children: [
                 GestureDetector(
                   onTap: () {
+                    // 因为“建立依赖”这个动作依赖于 Widget 的构建上下文，listen: true 在以下场景会出问题：
+
+                    // 在 initState 中使用 listen: true 会抛出运行时异常。因为此时 initState 阶段还不能建立 InheritedWidget 依赖。
+                    // 正确做法是在 initState 里用 listen: false 读取，或把逻辑移到 didChangeDependencies。
+
+                    // 在事件回调（如 onPressed）中使用 listen: true 没有意义且可能报错。回调触发时并不处于构建流程，
+                    // 建立依赖不会带来任何重建收益，应一律用 listen: false。
                     TLThemes.getProvider(context, listen: false).changeTheme(0);
                   },
                   child: getItem(Colors.cyanAccent, 0),

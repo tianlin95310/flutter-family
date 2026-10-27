@@ -27,7 +27,6 @@ class TLThemes with ChangeNotifier {
           appBarTheme: AppBarTheme(
             backgroundColor: primaryColor
           )
-          // brightness: Brightness.dark, // 影响界面内所有的文字颜色,控件的背景色，前景色
         ),
         ThemeData(
           primaryColor: primaryColor,
@@ -35,7 +34,6 @@ class TLThemes with ChangeNotifier {
           primaryColorLight: primaryColor,
           dividerColor: Colors.black12,
           indicatorColor: primaryColor,
-          // brightness: Brightness.dark,
             appBarTheme: AppBarTheme(
                 backgroundColor: primaryColor
             )
@@ -46,7 +44,6 @@ class TLThemes with ChangeNotifier {
           primaryColorLight: primaryColor,
           dividerColor: Colors.black12,
           indicatorColor: primaryColor,
-          // brightness: Brightness.dark,
             appBarTheme: AppBarTheme(
                 backgroundColor: primaryColor
             )
@@ -57,7 +54,7 @@ class TLThemes with ChangeNotifier {
           primaryColorLight: primaryColor,
           dividerColor: Colors.black12,
           indicatorColor: primaryColor,
-          // brightness: Brightness.dark,
+          // brightness: Brightness.dark,// 主要用于暗黑主题
             appBarTheme: AppBarTheme(
                 backgroundColor: primaryColor
             )
@@ -68,7 +65,12 @@ class TLThemes with ChangeNotifier {
     ThemeData.dark()
   ][0];
 
-  // use this method get a object can refresh Style when listen = true, and notifyListeners is called
+
+// InheritedWidget有个默认的约定：如果状态是希望暴露出的，应当提供一个 “of” 静态方法来获取其对象，开发者便可直接通过该方法来获取。
+// 获取最近的context上下文对象
+// 这个静态方法可以获取widget树中最近的Provider<T>，并且返回它的值。如果listen为true,那么随后value发生的变化会触发State.build和
+// State.didChangeDependencies. 如果需要在initState中调用Provider.of或者如下调用Provider的create方法时，需要设置listen为false：
+// use this method get a object can refresh Style when listen = true, and notifyListeners is called
   static TLThemes getProvider(BuildContext context, {bool listen = true}) {
     return Provider.of<TLThemes>(context, listen: listen);
   }

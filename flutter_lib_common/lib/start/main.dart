@@ -65,6 +65,8 @@ class MyApp extends StatelessWidget {
               title: 'Flutter Demo',
               theme: TLThemes.getProvider(context).theme,
               darkTheme: TLThemes.getProvider(context).darkTheme,
+                // highContrastTheme: ,
+              // highContrastDarkTheme: ,
                 // themeMode determines theme and darkTheme which be used, the default is ThemeMode.system
               themeMode: TLThemes.getProvider(context).themeMode,
               initialRoute: 'home',

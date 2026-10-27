@@ -1,8 +1,6 @@
 .DS_Store
 .dart_tool/
-.gradle
 
-.packages
 .pub/
 
 .idea/
@@ -10,7 +8,7 @@
 .sconsign.dblite
 .svn/
 
-
+migrate_working_dir/
 
 *.swp
 profile
@@ -31,8 +29,6 @@ DerivedData/
 
 xcuserdata
 
-local.properties
-
 *.moved-aside
 
 *.pyc
@@ -43,7 +39,6 @@ Icon?
 build/
 .android/
 .ios/
-.flutter-plugins
 .flutter-plugins-dependencies
 
 # Symbolication related
