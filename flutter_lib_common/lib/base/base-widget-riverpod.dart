@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 mixin LifeCycleEvent {
 
 }
 
-abstract class BaseState2026 extends State {
+abstract class BaseStateRP extends ConsumerState {
 
   @override
   void initState() {

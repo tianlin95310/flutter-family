@@ -22,3 +22,10 @@ class NewClass {
     return 'NewClass{str: $str}';
   }
 }
+
+// ClassName(...)：未命名生成式构造函数
+// ClassName.xxx(...)：命名生成式构造函数
+// factory ClassName(...)：未命名工厂构造函数
+// factory ClassName.xxx(...)：命名工厂构造函数
+// const ClassName(...)：常量生成式构造函数
+// ClassName.xxx(...) : this(...)：重定向构造函数

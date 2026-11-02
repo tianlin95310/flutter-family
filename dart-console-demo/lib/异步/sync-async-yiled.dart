@@ -15,11 +15,16 @@ void main() {
   // print(fund()..forEach(print));
 }
 
-// 返回同步流
+// 返回流
 Stream<int> funa() async* {
   yield await 1;
   yield* Stream<int>.fromIterable([2 ,3]);
   yield 4;
+}
+
+//返回异步Future
+Future<int> func() async {
+  return 333;
 }
 
 /// unsupported sync
@@ -35,10 +40,6 @@ Iterable<int> funb() sync* {
   yield 6;
 }
 
-//返回异步Future
-Future<int> func() async {
-  return 333;
-}
 //返回迭代类
 Iterable<List> fund() sync* {
   yield [1];

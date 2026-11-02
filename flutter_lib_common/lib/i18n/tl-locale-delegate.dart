@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 import 'tl-localizations.dart';
 
-class TlLocalizationsDelegate extends LocalizationsDelegate<I18n> {
+class TlLocalizationsDelegate extends LocalizationsDelegate<TlLocalizations> {
 
   @override
   bool isSupported(Locale locale) {
@@ -11,13 +11,13 @@ class TlLocalizationsDelegate extends LocalizationsDelegate<I18n> {
   }
 
   @override
-  bool shouldReload(LocalizationsDelegate<I18n> old) {
+  bool shouldReload(LocalizationsDelegate<TlLocalizations> old) {
     return false;
   }
 
   @override
-  Future<I18n> load(Locale locale) {
-    return SynchronousFuture(I18n(locale));
+  Future<TlLocalizations> load(Locale locale) {
+    return SynchronousFuture(TlLocalizations(locale));
   }
 
   static const TlLocalizationsDelegate delegate = TlLocalizationsDelegate();

@@ -10,7 +10,7 @@ class CustomWidgets extends BaseStatefulWidget {
 
 class _CustomWidgetsState extends BasePageTitleState<CustomWidgets> {
   String getTitle(BuildContext context) {
-    return I18n.of(context).custom_widget;
+    return TlLocalizations.of(context).custom_widget;
   }
 
   Widget getBody(BuildContext context) {

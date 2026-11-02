@@ -1,18 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_lib_common/i18n/tl-locale-delegate.dart';
+import 'package:flutter_lib_common/i18n/tl-localizations.dart';
+import 'package:flutter_lib_common/themes/main.dart';
+import 'package:flutter_lib_common/widget/page-not-found.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:provider/provider.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
-import 'package:flutter_lib_common/main.dart';
-import 'package:flutter_lib_common/widget/image-cut-view.dart';
-import 'package:flutter_lib_common/widget/page-not-found.dart';
-import 'package:flutter_lib_common/widget/custom-widgets.dart';
-
-final Map<String, WidgetBuilder> commonRoutes = {
-  'NotFoundPage': (BuildContext context) => NotFoundPage(),
-  'ImageCutView': (BuildContext context, { arguments }) => ImageCutView(arguments: arguments),
-  'CustomWidgets': (BuildContext context) => CustomWidgets()
-};
 
 class MyApp extends StatelessWidget {
   final Map<String, WidgetBuilder> visitRoutes;
@@ -30,11 +24,11 @@ class MyApp extends StatelessWidget {
 
     TLThemes themes = TLThemes();
     themes.changeTheme(theme);
-    I18n i18n = I18n(Locale("zh", 'CN'));
+    TlLocalizations localizations = TlLocalizations(Locale("zh", 'CN'));
     if (language == 'zh-CN') {
-      i18n = I18n(Locale("zh", 'CN'));
+      localizations = TlLocalizations(Locale("zh", 'CN'));
     } else if (language == 'en-US') {
-      i18n = I18n(Locale("en", 'US'));
+      localizations = TlLocalizations(Locale("en", 'US'));
     }
 
     /// 1,Provider
@@ -52,14 +46,14 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider.value(value: themes),
         ChangeNotifierProvider(
           create: (BuildContext context) {
-            return i18n;
+            return localizations;
           },
         )
       ],
       builder: (BuildContext context, Widget? child) {
         print('MultiProvider build');
-        return Consumer<I18n>(
-          builder: (BuildContext ctx, I18n localizations, Widget? child) {
+        return Consumer<TlLocalizations>(
+          builder: (BuildContext ctx, TlLocalizations localizations, Widget? child) {
             print('---TlLocalizations Consumed---');
             return MaterialApp(
               title: 'Flutter Demo',

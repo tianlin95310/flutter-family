@@ -3,12 +3,13 @@ import 'package:provider/provider.dart';
 import 'language/zh.dart';
 import 'language/en.dart';
 
-class I18n with ChangeNotifier {
+class TlLocalizations with ChangeNotifier {
   Locale _locale;
 
-  I18n(this._locale);
+  TlLocalizations(this._locale);
 
   Locale get locale => _locale;
+
   String get main => $('main');
   String get news => $('news');
   String get mine => $('mine');
@@ -30,8 +31,8 @@ class I18n with ChangeNotifier {
   }
 
   // 用于获取文字信息
-  static I18n of(BuildContext context) {
-    return Localizations.of(context, I18n);
+  static TlLocalizations of(BuildContext context) {
+    return Localizations.of(context, TlLocalizations);
   }
 
 //  用于获取I18n
@@ -39,8 +40,8 @@ class I18n with ChangeNotifier {
 //  获取最近的context上下文对象
 //  这个静态方法可以获取widget树中最近的Provider<T>，并且返回它的值。如果listen为true,那么随后value发生的变化会触发State.build和
 //  State.didChangeDependencies. 如果需要在initState中调用Provider.of或者如下调用Provider的create方法时，需要设置listen为false：
-  static I18n getProvider(BuildContext context, {bool listen = false}) {
-    return Provider.of<I18n>(context, listen: listen);
+  static TlLocalizations getProvider(BuildContext context, {bool listen = false}) {
+    return Provider.of<TlLocalizations>(context, listen: listen);
   }
 
   $(String key){
