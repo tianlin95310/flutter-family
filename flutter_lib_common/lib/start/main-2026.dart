@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_lib_common/i18n/tl-locale-delegate.dart';
-import 'package:flutter_lib_common/i18n/tl-localizations.dart';
+import 'package:flutter_lib_common/i18n/provider/tl-locale-delegate.dart';
+import 'package:flutter_lib_common/i18n/provider/tl-localizations.dart';
 import 'package:flutter_lib_common/themes/main.dart';
 import 'package:flutter_lib_common/widget/page-not-found.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';

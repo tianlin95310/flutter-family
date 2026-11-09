@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'language/zh.dart';
-import 'language/en.dart';
+import '../language/zh.dart';
+import '../language/en.dart';
 
 class TlLocalizations with ChangeNotifier {
   Locale _locale;
