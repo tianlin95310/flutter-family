@@ -19,7 +19,7 @@ abstract class BaseStatefulWidget extends StatefulWidget {
   BaseStatefulWidget({Key? key}) : super(key: key);
 }
 
-/// 基本的StatefulWidget State, no Scaffold, no appBar, with KeepAlive
+/// with  State, no Scaffold, no appBar, with KeepAlive
 abstract class BaseState<T extends BaseStatefulWidget> extends State<T> with AutomaticKeepAliveClientMixin {
   @override
   Widget build(BuildContext context) {
@@ -90,7 +90,7 @@ abstract class BasePageTitleState<T extends BaseStatefulWidget> extends State<T>
   }
 }
 
-/// 带有AppBar的异步加载state
+/// with Scaffold, with appBar, with FutureBuilder
 abstract class BasePageTitleFutureState<T extends BaseStatefulWidget> extends State<T> {
   late Future _future;
 
@@ -148,7 +148,7 @@ abstract class BasePageTitleFutureState<T extends BaseStatefulWidget> extends St
   }
 }
 
-/// 异步加载的局部界面的State
+/// part component, with FutureBuilder
 abstract class BaseFutureState<T extends BaseStatefulWidget> extends State<T> {
   late Future _future;
 

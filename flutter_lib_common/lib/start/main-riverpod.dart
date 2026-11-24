@@ -1,10 +1,8 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_lib_common/themes/main-riverpod.dart';
-import 'package:flutter_lib_common/widget/page-not-found.dart';
-import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:flutter_lib_common/i18n/riverpod/tl-localizations.dart';
 import 'package:flutter_lib_common/i18n/riverpod/tl-locale-delegate.dart';
+import 'package:flutter_lib_common/i18n/riverpod/tl-localizations.dart';
+import 'package:flutter_lib_common/themes/main-riverpod.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 
@@ -13,12 +11,10 @@ final themeProvider = NotifierProvider<TLThemesRP, int>(TLThemesRP.new);
 final localizationsProvider = NotifierProvider<TlLocalizationsRP, Locale>(TlLocalizationsRP.new);
 
 class MyAppRiverPod extends StatelessWidget {
-  final Map<String, WidgetBuilder> visitRoutes;
-  final Map<String, WidgetBuilder> authRoutes;
-
+  final RouterConfig<Object> _routerConfig;
   final Map config;
 
-  const MyAppRiverPod(this.visitRoutes, this.authRoutes, this.config);
+  const MyAppRiverPod(this.config, this._routerConfig);
 
   @override
   Widget build(BuildContext context) {
@@ -43,7 +39,8 @@ class MyAppRiverPod extends StatelessWidget {
                 localizations.locale = Locale("en", 'US');
               }
               print('---themes & localizations Consumed---');
-              return MaterialApp(
+              return MaterialApp.router(
+                routerConfig: _routerConfig,
                 title: 'Flutter Demo',
                 theme: themes.theme,
                 darkTheme: themes.darkTheme,
@@ -51,38 +48,38 @@ class MyAppRiverPod extends StatelessWidget {
                 // highContrastDarkTheme: ,
                 themeMode: themes.themeMode,
                 // themeMode determines theme and darkTheme which be used, the default is ThemeMode.system
-                initialRoute: 'home',
-                routes: visitRoutes,
+                // initialRoute: 'home',
+                // routes: visitRoutes,
                 // app进入任务列表菜单后的标题
                 onGenerateTitle: (BuildContext context) {
                   return localizations.appTitle;
                 },
                 // 未注册的动态路由
-                onGenerateRoute: (RouteSettings settings) {
-                  print('---onGenerateRoute---');
-                  String routeName = settings.name ?? 'NotFoundPage';
-                  Function builder = authRoutes[routeName] ?? (BuildContext context) => NotFoundPage();
-                  if (settings.arguments != null) {
-                    return CupertinoPageRoute(
-                      settings: settings,
-                      builder: (BuildContext context) {
-                        return builder(context, arguments: settings.arguments);
-                      },
-                    );
-                  } else {
-                    return CupertinoPageRoute(
-                        settings: settings,
-                        builder: (BuildContext context) {
-                          return builder(context);
-                        });
-                  }
-                },
-                onUnknownRoute: (RouteSettings settings) {
-                  print('---onUnknownRoute---');
-                  print(settings.toString());
-                  WidgetBuilder builder = authRoutes['NotFoundPage'] ?? (BuildContext context) => NotFoundPage();
-                  return CupertinoPageRoute(settings: settings, builder: builder);
-                },
+                // onGenerateRoute: (RouteSettings settings) {
+                //   print('---onGenerateRoute---');
+                //   String routeName = settings.name ?? 'NotFoundPage';
+                //   Function builder = authRoutes[routeName] ?? (BuildContext context) => NotFoundPage();
+                //   if (settings.arguments != null) {
+                //     return CupertinoPageRoute(
+                //       settings: settings,
+                //       builder: (BuildContext context) {
+                //         return builder(context, arguments: settings.arguments);
+                //       },
+                //     );
+                //   } else {
+                //     return CupertinoPageRoute(
+                //         settings: settings,
+                //         builder: (BuildContext context) {
+                //           return builder(context);
+                //         });
+                //   }
+                // },
+                // onUnknownRoute: (RouteSettings settings) {
+                //   print('---onUnknownRoute---');
+                //   print(settings.toString());
+                //   WidgetBuilder builder = authRoutes['NotFoundPage'] ?? (BuildContext context) => NotFoundPage();
+                //   return CupertinoPageRoute(settings: settings, builder: builder);
+                // },
                 locale: localizations.locale,
                 localizationsDelegates: const [
                   GlobalMaterialLocalizations.delegate,

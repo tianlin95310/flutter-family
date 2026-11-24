@@ -29,6 +29,7 @@ mixin UIInteraction on ConsumerState {
     final color = _getTypeColor(type);
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
+        margin: EdgeInsetsDirectional.only(bottom: 100, start: 20, end: 20),
         content: Text('请输入提问内容'),
         duration: Duration(seconds: 1),
         backgroundColor: color,

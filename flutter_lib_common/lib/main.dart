@@ -19,9 +19,10 @@ export 'start/main.dart';
 export 'themes/main.dart';
 export 'themes/main-riverpod.dart';
 
+export 'package:go_router/go_router.dart';
+
 final Map<String, WidgetBuilder> commonRoutes = {
   'NotFoundPage': (BuildContext context) => NotFoundPage(),
-  'ImageCutView': (BuildContext context, { arguments }) => ImageCutView(arguments: arguments),
+  'ImageCutView': (BuildContext context, {arguments}) => ImageCutView(arguments: arguments),
   'CustomWidgets': (BuildContext context) => CustomWidgets()
 };
-

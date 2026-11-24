@@ -37,22 +37,24 @@ dependencies:
 #  <1.2.3	严格小于某个版本	<1.2.3
 #  ">=1.2.3 <2.0.0"    范围约束	同时限制上下界
 #  any	任意版本	不推荐生产使用
-  cupertino_icons: ^1.0.6
+  cupertino_icons: ^2.0.0
 
-  provider: ^6.1.1
+  provider: ^6.1.5+1
 
   pull_to_refresh: ^2.0.0
 
 #  解决bug，tabbarview内部listview滑动问题
   extended_nested_scroll_view: ^6.2.1
 
-  cached_network_image: ^4.0.4
+  cached_network_image: ^4.0.7
 
   image_picker: ^1.2.4
 
-  flutter_riverpod: ^3.4.3
+  flutter_riverpod: ^3.5.0
 
   dio: ^5.11.1
+
+  go_router: ^18.1.4
 
 dev_dependencies:
   flutter_test:

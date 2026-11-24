@@ -1,11 +1,16 @@
 import 'dart:async';
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter_lib_common/main.dart';
 
 mixin AutoDispose on ConsumerState {
   late final List<StreamSubscription> _stream = [];
   late final List<CancelToken> _cancelToken = [];
   late final List<Completer> _aborts = [];
+
+  final List<ChangeNotifier> _notifiers = [];
+
+  final List<Timer> _timers = [];
 
   @override
   void initState() {
@@ -22,6 +27,12 @@ mixin AutoDispose on ConsumerState {
     for (var item in _aborts) {
       item.complete();
     }
+    for (var item in _notifiers) {
+      item.dispose();
+    }
+    for (var item in _timers) {
+      item.cancel();
+    }
   }
 
   @override
@@ -30,13 +41,21 @@ mixin AutoDispose on ConsumerState {
     super.dispose();
   }
 
-  void addListener(Object? stream) {
-    if (stream is StreamSubscription) {
-      _stream.add(stream);
-    } else if (stream is CancelToken) {
-      _cancelToken.add(stream);
-    } else if (stream is Completer) {
-      _aborts.add(stream);
+  void addListener(Object? obj) {
+    if (obj is StreamSubscription) {
+      _stream.add(obj);
+    } else if (obj is CancelToken) {
+      _cancelToken.add(obj);
+    } else if (obj is Completer) {
+      _aborts.add(obj);
+    } else if (obj is ChangeNotifier) {
+      _notifiers.add(obj);
+    } else if (obj is Timer) {
+      _timers.add(obj);
+    } else if (obj is List) {
+      for (var item in obj) {
+        addListener(item);
+      }
     }
   }
 
